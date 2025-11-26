@@ -911,7 +911,7 @@ for deploy in range(deploy_num):
 import numpy as np 
 arr_np = jnp.hstack([traj_data.X, traj_data.y])
 arr_np = jnp.hstack([arr_np, jnp.repeat(seednum,arr_np.shape[0]).reshape(-1,1)])
-with open('./traj_data_BALLAST20_old.csv', 'a') as myfile:
+with open('./traj_data_BALLAST20.csv', 'a') as myfile:
     np.savetxt(myfile, np.array(arr_np), delimiter=',')
 
 
@@ -967,5 +967,6 @@ for d in deployment_time:
 
 metric = jnp.vstack([jnp.array(bias_list_full)])
 metric = jnp.hstack([metric, jnp.repeat(seednum,metric.shape[0]).reshape(-1,1)])
-with open('./metric_BALLAST20_old.csv', 'a') as myfile:
+with open('./metric_BALLAST20.csv', 'a') as myfile:
+
     np.savetxt(myfile, np.array(metric), delimiter=',')
